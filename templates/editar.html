@@ -1,0 +1,16 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<h2 style="text-align: center">Atualizar Usuário</h2>
+<hr>
+
+<form action="{{url_for('atualizar')}}" method="POST" class="form-control">
+    <input type="hidden" name="id" value="{{user.id}}">
+    <label>Nome</label>
+        <input class="form-control" type="text" name="nome" value="{{user.nome}}" required>
+    <label>Função</label>
+        <input class="form-control" type="text" name="funcao" value="{{user.funcao}}" required>
+    <button class="btn btn-success">Atualizar</button>
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "template.html" %}
+{% block conteudo %}
+
+<h2 style="text-align: center">Lista de Usuários</h2>
+<hr>
+{% for message in get_flashed_messages() %}
+  <div class="alert alert-danger">
+     {{message}}
+  </div>
+{%endfor%}
+<a href="{{url_for('novo')}}" class="btn btn-secondary">Novo Usuário</a>
+<br><br>
+<table class="table table-bordered table-striped table-responsive table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Função</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody class="table">
+      {% for user in usuarios %}
+    <tr>
+      <th scope="row">{{  user.id}}</th>
+      <td>{{ user.nome }}</td>
+      <td>{{ user.funcao }}</td>
+      <td>
+        <a href="{{url_for('editar', id=user.id)}}" class="btn btn-xs">Editar</a>
+        <a href="{{url_for('delete', id=user.id)}}" onclick="return confirm('Deseja deletar esse usuário?')" class="btn btn-xs">Deletar</a>
+      </td>
+    </tr>
+      {% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock %}

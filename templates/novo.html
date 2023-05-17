@@ -1,0 +1,15 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<h2 style="text-align: center">Adicionar novo Usuário</h2>
+<hr>
+
+<form action="{{url_for('criar')}}" method="POST" class="form-control">
+    <label>Nome</label>
+        <input class="form-control" type="text" name="nome" placeholder="Nome do Usuário" required>
+    <label>Função</label>
+        <input class="form-control" type="text" name="funcao" placeholder="Função do Usuário" required>
+    <button class="btn btn-success">Adicionar</button>
+</form>
+
+
+{% endblock %}
